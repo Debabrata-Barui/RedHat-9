@@ -1,0 +1,19 @@
+** How to Conver GUI to CUI and CUI to GUI Interfac‌ RedHat ?
+==> Graphical GUI Location ==> /usr/lib/systemd/system/graphical.target
+
+Character CLI(Character Line Interface) Location ==> /usr/lib/systemd/system/multi-user.target
+
+** To convert ‌RedHat in GUI to CLI Mode
+# systemctl set-default multi-user.target
+
+** To convert RedHat in CLI to GUI Mode
+# systemctl set-default graphical.target
+
+
+** How to conver in CLI mode for Temporary time in GUI
+# systemctl isolate multi-user.target
+
+
+** How to conver in GUI mode for Temporary time in CLI
+# systemctl isolate graphical.target
+

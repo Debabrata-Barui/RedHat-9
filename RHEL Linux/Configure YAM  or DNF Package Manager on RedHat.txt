@@ -1,0 +1,29 @@
+** How to configure YUM or DNF Package Manager on RedHat Server?
+-> Copy all the RedHat ISO File data into RedHat Server
+	# lsblk
+	# mkdir IsoFile
+	# mount <IsoFile> /IsoFile
+	# cd /IsoFile
+	# mkdir /RedHat-9.1 
+	# cp -rf * /RedHat-9.1
+	
+-> Create a Repo File inside the /etc/yum.repos.d and configure that repo file
+	# vim /etc/yum.repos.d/rhel.repo
+
+[path-1]
+name=This is my Local Repo-1 created by Debabrata.
+baseurl=file:///RedHat-9.1/BaseOS
+enabled=1
+gpgcheck=0
+[path-2]
+name=This is my Local Repo-2 created by Debabrata.
+baseurl=file:///RedHat-9.1/AppStream
+enabled=1
+gpgcheck=0
+
+	# yum clean all
+		or =
+	# dnf clean all	
+** What will be the yum or dnf baseurl on redhat?
+=> Appstream and BaseOS
+=> In inside those both file - Packages and repodata directory should be there.

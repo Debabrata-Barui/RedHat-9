@@ -1,0 +1,61 @@
+** How to conect DVD on Phisical RedHat Server?
+-> Check all the disk
+	# lsblk
+-> Mount the DEV Drive. DVD Drive always soulbe be in sr0 Disk Parition name
+	# mount /dev/sr0 /mnt   -- To mount 
+	# cd /mnt/<Device_Name>  -- To Access the DVD
+	# umount /mnt/<Device_Name> -- To unmount the DVD
+	# exit -- To exit the dev
+	# exit -t -- To push the DVD Drive
+
+	
+
+** In GUI RedHat By Default Mount Point is /run/media/<UserName>/<Device_name>
+** By default Manual Mount point is /mnt 
+
+** Mountpoint:- A mount point is a directory or file. By this mount point we can access our periferal drives, like NFS, PENDRIVE, DVD, CD, ISO Image file ect..
+	EX- # mount /dev/<device_name> /<Mount_Point>
+
+
+** How to connect ISO Image file on Phisical RedHat Server?
+-> Download ISO Image file
+	# wget <Iso_File_Link>
+-> Mount that iso file
+	# mkdir /IsoFile
+	# mount <isoFile.iso> /IsoFile
+	# lsblk
+	# cd /IsoFile
+	# cp -rf * /tmp
+
+** How to mount ISO Image file on Virtual RHEL Server??
+-> Open VMWare Workstation -> Go to the settig the RHEL Virtual Machine
+-> Hardware -> CD/DVD(SATA) -> Import the ISO File -> Activate the DVD from Down-Bellow of the RHEL VM Machine.
+	# lsblk
+-> By default It is mounted in
+	# cd /run/media/<...>
+-> Unmount the ISO 
+	# umount /run/media/<...>
+-> Create a new mount point
+	# mkdir /IsoFile
+	# cd /IsoFile
+-> By default iso file and dvd drive name would be sr0
+	# lsblk
+	# mount /dev/sr0 /IsoFile
+	
+-> Unmount the ISO File
+	# umount /IsoFile
+
+
+
+** How to conect Pendrive on Phisical RedHat Server?
+	# lsblk
+-> Create a new mount point
+	# mkdir /pendrive
+-> Pendrive name will be sdb1 just like that
+	# mount /dev/sdb1 /pendrive
+-> Go inside the pendrive
+	# cd /pendrive/<Drive_Name>
+-> To Unmount the pendrive
+	# umount /pendrive
+
+	

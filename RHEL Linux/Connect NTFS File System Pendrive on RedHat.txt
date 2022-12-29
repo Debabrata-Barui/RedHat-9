@@ -1,0 +1,20 @@
+** How to install ntfs-3g on RedHat for supporting NTFS File System?
+-> Download and Install epel-release
+# wget https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/e/epel-release-9-4.el9.noarch.rpm
+
+# sudo yum install epel-release-9-4.el9.noarch.rpm -y
+
+--> Download and Install Ntfs-3g 
+# yum install ntfs-3g
+
+-> Once installed, we create a directory where the NTFS drive shall be mounted:
+# mkdir /mnt/win
+
+# lsblk
+
+-> Now we can mount the NTFS partition by running this command:
+# mount -t ntfs-3g /dev/sdb1 /mnt
+
+	or
+
+# mount /dev/sdb1 -t ntfs-3g /mnt
